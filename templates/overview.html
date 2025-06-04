@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Rides Overview</title>
+    <style>
+        /* Full-page background */
+        body {
+            font-family: Arial, sans-serif;
+            background: url("{{ url_for('static', filename='image/imag.jpg') }}") no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+
+        .header {
+            width: 100%;
+            height: 150px;
+            background: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            position: relative;
+            box-sizing: border-box; /* Ensures padding doesn't increase width */
+            overflow: hidden;
+            white-space: nowrap; /* Prevents content from overflowing */
+        }        
+
+        /* Container for content */
+        .container {
+            background: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+            padding: 20px;
+            margin: 50px auto;
+            width: 60%;
+            color: rgb(252, 248, 11);
+            font-size: 20px;
+            border-radius: 10px;
+            width:650px;
+            height:250px;
+
+        }
+        /* Button styling */
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #D4AF37;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #e6de73;
+        }
+
+        
+        /* Logo styling */
+        .logo {
+            border-radius: 0%; /* Makes it circular if needed */
+            height: 100px; /* Adjust size */
+            width: auto; /* Maintain aspect ratio */
+        }
+
+        .title {
+            font-size: 60px;
+            font-weight: bold;
+            position: absolute;
+            color: rgb(252, 248, 11);
+            left: 50%;
+            transform: translateX(-50%); /* Centers text exactly */
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 15px; /* Space between buttons */
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        p {
+    text-align: center;
+    color: whitesmoke;;
+    font-size: 25px;
+}
+
+h2{
+    background-color: #D4AF37;
+    color: whitesmoke;
+}
+
+.content-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color:rgba(0, 0, 0, 0.3); /* Optional: gives a slight background color */
+    border-radius: 10px;
+}
+
+.content-container h2, .content-container h3 {
+    text-align: center;
+    font-size: 35px;
+    color: whitesmoke;
+    background-color: #D4AF37;
+}
+
+.content-container p, .content-container ul {
+    color: rgb(255, 237, 79);
+    font-size: 30px;
+    line-height: 1.6;
+    text-align: left;
+    color: whitesmoke;
+}
+
+.content-container ul {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: left;
+    font-size: 23px;
+}
+
+.content-container ul li {
+    margin-bottom: 10px;
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <img src="{{ url_for('static', filename='image/image8.jpg') }}" alt="Smart Rides Logo" class="logo">
+        <h1 class="title">Smart Rides</h1>
+        <div class="header-buttons">
+            <a href="/register" class="button">✍️ Sign-in</a>
+            <a href="/login" class="button">🔑 Login</a>
+        </div>
+        
+    </div>
+
+    <!-- Main content -->
+    <div class="container">
+        <h2> Welcome to Smart Rides 🚗</h2>
+       <p>Your ultimate destination for analyzing trips.
+         Whether you're a frequent Smart user, a data analyst, or just curious about 
+         trends in the ride-sharing world, our platform provides powerful insights into the cab dataset.
+       </p>
+    </div>
+
+    <div class="content-container">
+        <h2> What We Do</h2>
+        <p>We provide detailed analyses of Smart rides, such as:</p>
+        <ul>
+            <li>📊 Trip Trends: Understand the patterns of Smart trips over time.</li>
+            <li>🕒 Peak Hours: Identify the most popular times for trips based on hour, day, and season.</li>
+            <li>🌍 Trip Locations: Explore where Smart rides are happening, based on geographical data.</li>
+            <li>🚙 Popular Vehicles: Find out which types of vehicles are most commonly used for Smart rides.</li>
+            <li>⭐ Driver Ratings: Analyze the ratings given by passengers to drivers.</li>
+        </ul>
+        <h3>💡 Why This Matters</h3>
+        <p>Our data-driven platform aims to help users and businesses make informed decisions. 
+        By visualizing Smart data trends, users can optimize their strategies for ride-sharing, 
+        make better transportation choices, or simply satisfy their curiosity about ride-sharing.</p>
+        <h3>🔍 Key Features:</h3>
+        <ul>
+            <li>• Dynamic Dashboards: Interactive insights on demand.</li>
+            <li>• Real-time Analytics: See up-to-date trends for a comprehensive view of the Smartrides ecosystem.</li>
+            <li>• User-Friendly: Easy to navigate interface for both new and experienced users.</li>
+        </ul>
+        <h3>What to Expect:</h3>
+        <p> Expect insightful reports and visualizations about:</p>
+        <ul>
+            <li>• How trip demand fluctuates during the day/week/month.</li>
+            <li>• Driver performance trends across different regions.</li>
+            <li>• Real-time heatmaps showing Smart trip density in key areas.</li>
+        </ul>
+
+    </div>
+    
+    
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+</body>
+</html>

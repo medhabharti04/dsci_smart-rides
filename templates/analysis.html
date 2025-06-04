@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis - Smart Rides</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background: url("{{ url_for('static', filename='image/i.png') }}") no-repeat center center;
+            background-size: cover;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 204, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #ffcc00;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #000;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        a:hover {
+            background-color: #ffdb4d;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: #fdbd0e;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #ffdd80;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Analysis</h1>
+        <iframe width="800" height="450" 
+            src="https://app.powerbi.com/reportEmbed?reportId=7403a751-4347-4818-a760-ac1883461a1b&autoAuth=true&ctid=b4c6b754-54e3-41e4-a8da-304355c62816" 
+            frameborder="0" allowFullScreen="true">
+        </iframe>
+        <br>
+        <a href="/" class="back-button">⬅️ Back to Overview</a>
+    </div>
+</body>
+</html>

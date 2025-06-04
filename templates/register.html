@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url("{{ url_for('static', filename='image/image4.jpg') }}") no-repeat center center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: rgba(255, 240, 155, 0.3);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-size: 16px;
+            color: #333;
+            text-align: left;
+            margin-left: 10px;
+        }
+        input {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+        input:focus {
+            border-color: #9b8564;
+        }
+        button {
+            padding: 10px;
+            background-color: #9e7f48;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e6b752;
+        }
+        .message {
+            color: red;
+            font-size: 12px;
+        }
+        .back-link {
+            text-decoration: none;
+            color: #9e7f48;
+            font-size: 18px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .back-link:hover {
+            color: #e6b752;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✍️ Register</h1>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="message">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('register') }}" autocomplete="off">
+            <label for="username"><b>Username:</b></label>
+            <input type="text" name="username" id="username" required minlength="6" autocomplete="off">
+
+            <label for="password"><b>Password:</b></label>
+            <input type="password" name="password" id="password" required minlength="6" autocomplete="new-password">
+
+            <button type="submit">Register</button>
+        </form>
+
+        <a class="back-link" href="/">Back to Overview</a>
+    </div>
+</body>
+</html>
