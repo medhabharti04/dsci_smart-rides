@@ -6,7 +6,7 @@ Smart Rides is a ride-sharing platform that faces challenges such as predicting 
 Objective
 The objective of this project is to apply data science techniques to optimize key components of Smart Rides services. This includes ride classification, fare prediction, fraud detection, and customer behavior analysis.
 
-Dataset Description
+Dataset Description (size- 20000+)
 The dataset was collected from Kaggle and contains one month of ride-sharing data. It includes details such as customer ID, ride distance, fare, vehicle type, booking status, and timestamps.
 
 Tools and Techniques Used
